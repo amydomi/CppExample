@@ -1,12 +1,12 @@
 /*
-inline 内联函数
-template<typename T> 函数模板
-namespace 名称空间嵌套
+inline 鍐呰仈鍑芥暟
+template<typename T> 鍑芥暟妯℃澘
+namespace 鍚嶇О绌洪棿宓屽
 */
 #include <iostream>
 using namespace std;
 
-#define ADD(A,B) ((A)+(B))	// 使用inline内联函数解决宏定义带来的麻烦
+#define ADD(A,B) ((A)+(B))	// 浣跨敤inline鍐呰仈鍑芥暟瑙ｅ喅瀹忓畾涔夊甫鏉ョ殑楹荤儲
 
 namespace comParent {
 	namespace comChildA {
@@ -20,7 +20,7 @@ namespace comParent {
 int main(int argc, char **argv) {
 	int a = 10;
 	int b = 20;
-	// 多层名称空间嵌套
+	// 澶氬眰鍚嶇О绌洪棿宓屽
 	cout << comParent::comChildA::plus(a, b) << endl;
 	float c = 1.5f;
 	float d = 2.0f;
@@ -45,7 +45,7 @@ namespace comParent {
 	namespace comChildB {
 		template<typename T> void swrap(T &a, T &b) {
 			T temp = a;
-			a = b;
+			a = b; 
 			b = temp;
 		}
 	}
