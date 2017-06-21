@@ -17,6 +17,9 @@ namespace comParent {
 	}
 }
 
+// 导入指定名称空间的某个函数
+using comParent::comChildB::swrap;
+
 int main(int argc, char **argv) {
 	int a = 10;
 	int b = 20;
@@ -30,7 +33,7 @@ int main(int argc, char **argv) {
 	int sa = 50;
 	int sb = 20;
 	cout << "sa:" << sa << "\tsb:" << sb << endl;
-	comParent::comChildB::swrap(sa, sb);
+	swrap(sa, sb);	// comParent::comChildB::swrap
 	cout << "sa:" << sa << "\tsb:" << sb << endl;
 
 	return 0;
