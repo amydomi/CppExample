@@ -15,13 +15,13 @@ public:
 	~Person();
 	void say(string word);
 	void eat();
-    static int getCount();  // 静态方法
+   	static int getCount();  // 静态方法
     
 private:
 	string m_name;
 	string m_gender;
 	int m_age;
-    static int m_count;  // 静态成员函数
+    	static int m_count;  // 静态成员函数
 };
 
 #endif
