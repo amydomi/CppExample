@@ -1,6 +1,7 @@
-#include <iostream>
+﻿#include <iostream>
 #include "Student.h"
 
+// 只在当前文件中展开std名称空间，main.cpp中无效
 using namespace std;
 
 Student::Student():m_id(0), m_score(0) {
