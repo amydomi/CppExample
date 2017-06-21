@@ -13,13 +13,13 @@ int Person::getCount() {
 Person::Person(string name, string gender, int age)
 	: m_name(name), m_gender(gender), m_age(age)
 {
-    m_count++;
+	m_count++;
 	cout << "Person constructor." << endl;
 	cout << "name:" << m_name << "\tgender:" << m_gender << "\tage:" << m_age << endl;
 }
 
 Person::~Person() {
-    m_count--;
+	m_count--;
 	cout << "Person destructor." << endl;
 }
 
