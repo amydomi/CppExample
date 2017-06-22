@@ -71,6 +71,7 @@ int main(void) {
 	*m = 10;
 	cout << *m << endl;
 	free(m);
+	m = NULL;
 	
 	// 存放到常量
 	const Test e("E");
