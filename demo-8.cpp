@@ -56,8 +56,13 @@ int main(void) {
 	
 	// new 创建，delete 销毁
 	Test *c = new Test("C");
-	delete c;
-	c = NULL;	// 编码规范：释放后记得将指针置空
+	
+	// 对象创建失败，返回NULL
+	if(c != NULL) {
+		delete c;
+		c = NULL;	// 编码规范：释放后记得将指针置空	
+	}
+	
 	
 	// new 对象数组，delete[] 销毁
 	// new创建对象数组，不能调用自定义构造函数，自动调用无参构造函数
