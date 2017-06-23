@@ -11,7 +11,7 @@
  *		bss段：存放未初始化的全局变量 值为0
  *		data段：存放初始化的全局变量，非0
  *
- * 常量区：常量
+ * 常量区：常量 
  */
 #include <iostream>
 #include <string>
