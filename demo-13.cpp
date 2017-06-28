@@ -27,7 +27,7 @@ int main()
 	cout << b << endl;	// 0
 	
 	// 浮点类型转整型，只取小数点前的整数
-	int c = 3.14;
+	int c = 3.14;	// 部分浏览器报错
 	cout << c << endl;	// 3
 	
 	// 整型转浮点型，小数点全部为0
@@ -66,11 +66,17 @@ int main()
 	short w = k;
 	cout << w << endl;	// -13108
 
-    // 有符号和无符号的表达式，最终得到的是无符号的结果，需要进行类型转换
-    // cout << (signed)(q + z) << endl;
-    unsigned int q = 5;
-    int z = -10;
-    // int qz = q + z;  // 部分编译器是正常的，不过尽量不要不同类型之间进行操作，转换统一类型后再操作可靠
+	// 有符号和无符号的表达式，最终得到的是无符号的结果，需要进行类型转换
+	// cout << (signed)(q + z) << endl;
+	unsigned int q = 5;
+	int z = -10;
+	// int qz = q + z;  // 部分编译器是正常的，不过尽量不要不同类型之间进行操作，转换统一类型后再操作可靠
 	cout << q + z << endl; // 4294967291
+	
+	// 两个无符号的数相见后得到的值也是无符号，如果值有可能是负数，需要对结果进行类型转换
+	// cout << (signed)(aa - bb) << endl;
+	unsigned int aa = 3;
+	unsigned int bb = 150;
+	cout << aa - bb << end;
 	return 0;
 }
