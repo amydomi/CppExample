@@ -52,7 +52,7 @@ int main()
 	
 	/*
 		两个int类型运算，返回值是int类型
-		要转成double需要强制类型转换，或者将来其中一项改为double类型
+		要转成double需要强制类型转换，或者将其中一项改为double类型
 		方案1：double i = 10 / 3.0;
 		方案2：double i = (double)10 / 3;
 	*/
