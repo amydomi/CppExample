@@ -43,6 +43,11 @@ int main()
     // 指针引用，也可以称指针别名
     int * &p6 = p;
     cout << *p6 << endl;
+    
+    // 常量引用必须带const关键词
+    const double PI = 3.1415;
+    const double &p7 = PI;  // 不能省掉这里的const
+    cout << p7 << endl;
  
     return 0;
 }
