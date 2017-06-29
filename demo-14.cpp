@@ -69,7 +69,9 @@ int main()
     cout << long2 << endl;
     
     bool b1 = true; // true or false 是bool类型字面量，也可以用1和0代替true和false
-    bool *p = nullptr;  // nullptr或NULL都是空指针的字面量
+    // nullptr是C++11的空指针的字面量，抛弃C语言中的NULL宏定义作为空指针，目的是防止函数重载时NULL和int类型冲突
+	// 旧版C++可以使用0作为空指针，尽量不要用NULL做空指针
+	bool *p = nullptr;
     cout << b1 << endl; // 1
     cout << p << endl; // 0x0
 	return 0;
