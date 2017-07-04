@@ -9,8 +9,8 @@ int main()
 	string s1 = "hello, ", s2 = "world\n";
 	string s3 = s1 + s2;	// s3的内容是 hello, world\n
 	s1 += s2;				// 等价于 s1 = s1 + s2;
-	
 	string s4 = s1 + ", " + "world"; // 正确
+	string s5(10, 'c');		// s4为cccccccccc
 	
 	// 为兼容C，字符串字面量不是一个string对象
 	// 错误，字面量不能相加，字面量相加，前面必须有一个string对象
@@ -39,6 +39,10 @@ int main()
 		c = toupper(c);
 	}
 	cout << s3 << endl;
+	
+	string s6;
+	cout << s3.size() << endl; // 返回字符串长度
+	cout << s6.empty() << endl; // 判断字符串是否为空
 	
 	return 0;
 }
