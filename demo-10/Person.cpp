@@ -46,10 +46,10 @@ Person & Person::operator = (const Person &p)
 	if(p.m_name != NULL) {
 		// 释放旧值
 		free(m_name);
-        m_name = NULL;
+        	m_name = NULL;
         
-        // 分配新的空间并赋值
-        int len = strlen(p.m_name);
+        	// 分配新的空间并赋值
+        	int len = strlen(p.m_name);
 		m_name = (char *)malloc(sizeof(char) * (len + 1));
 		memset(m_name, 0, len);
 		strcpy(m_name, p.m_name);
