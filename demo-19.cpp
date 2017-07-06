@@ -47,5 +47,17 @@ int main()
 	}
 	cout << endl;
 	
+	
+	vector<string>::const_iterator svec1;	// 只读容器
+	const vector<string> svec2;	//和上面一样
+	vector<string>::iterator svec3;	// 可读容器
+	vector<string> svec4;	// 默认是可读写的
+	
+	// 只读迭代器， C++11 增加了cbegin()  cend() 方法用来做只读访问控制
+	for(vector<int>::const_iterator it = ivec.begin(); it != ivec.end(); ++it) {
+		cout << *it << "\t";
+	}
+	cout << endl;
+	
 	return 0;
 }
