@@ -11,7 +11,7 @@ int main()
 	std::cout << p1[1] << std::endl;	// 指针也可以通过下标访问数组值
 	// 指针可以自增自减移动指向的位置，数组名不行
 	//p1++;	//OK
-	//arrInt;	//Error
+	//arrInt++;	//Error
 	
 	// 指向数组的指针，简称数组指针
 	int (*p2)[2] = &arrInt;
