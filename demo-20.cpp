@@ -13,6 +13,15 @@ int main()
 	//p1++;	//OK
 	//arrInt;	//Error
 	
+	// 指向数组的指针，简称数组指针
+	int (*p2)[2] = &arrInt;
+	std::cout << "(*p2)[1]=" << (*p2)[1] << std::endl;	// 取出指向数组指针的值
+	
+	// 存放指针的数组，简称指针数组
+	int *p3[2] = {&arrInt[0], &arrInt[1]};
+	std::cout << "*p3[1]=" << *p3[1] << std::endl;	// 取出数组第二项中指针指向的地址中的值
+	
+	
 	auto ia(arrInt);	//ia初始化为int指针，相同 int *ia = &arrInt[0];
 	//int ia = arrInt // 不允许这样写
 	
