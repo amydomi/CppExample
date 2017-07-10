@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <string>	// std::string
 #include <cctype>	// 处理字符的标准库
+#include <cstring>	// c语言字符串处理，strcpy、strcat...
 
 using namespace std;
 
@@ -43,6 +44,12 @@ int main()
 	string s6;
 	cout << s3.size() << endl; // 返回字符串长度
 	cout << s6.empty() << endl; // 判断字符串是否为空
+	
+	//将string对象转换为C语言字符串
+	string ss1 = "hello world";
+	char ss2[20];
+	strcpy(ss2, ss1.c_str());	// 记得要用strcpy，不然ss1虚构后ss2就会指向一个不存在的内存
+	cout << ss2 << endl;
 	
 	return 0;
 }
