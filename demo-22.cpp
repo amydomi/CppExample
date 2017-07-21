@@ -115,6 +115,18 @@ void print_struct3(cPoint &point)
 	point.y = 200;
 }
 
+/*
+ * 常量可变参数
+ * initializer_list 和 vector 一样，也是容器
+ * 不同的是initializer_list只能装常亮
+ */
+void print_strings(initializer_list<string> list)
+{
+	for(auto it = list.begin(); it != list.end(); ++it) {
+		cout << *it << endl;
+	}
+}
+
 int main()
 {
 	// 通过传递指针修改指针指
@@ -162,5 +174,8 @@ int main()
 	print_struct3(point);
 	cout << "x=" << point.x << "\ty=" << point.y << endl;
 
+	// 常量可变参数
+	print_strings({"hello", "world"});
+	print_strings({"a", "b", "c"});
 	return 0;
 }
