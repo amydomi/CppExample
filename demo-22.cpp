@@ -29,13 +29,13 @@ int find_char(const string &s, const char &c)
 }
 
 /*
- * 数组作为参数传递的时候，会自动转为指针，数组长度会丢失
- * 标记指定数组长度
- * 1、传递C字符串（字符数组），可以通过判断是否以\0结束
- * 2、通过传递标准库begin()、end()进行传递
- * 3、把数组长度作为另外一个参数一起传递
- * 4、传递数组引用
- */
+* 数组作为参数传递的时候，会自动转为指针，数组长度会丢失
+* 标记指定数组长度
+* 1、传递C字符串（字符数组），可以通过判断是否以\0结束
+* 2、通过传递标准库begin()、end()进行传递
+* 3、把数组长度作为另外一个参数一起传递
+* 4、传递数组引用
+*/
 
 // 1、字符数组
 void print_char(const char *c)
@@ -67,12 +67,52 @@ void print_arr(const int *arr, const size_t size)
 }
 
 // 4、传递数组引用, 括号不能省，而且强制只能传7项的数组
-void print_arr(const int (&arr)[7])
+void print_arr(const int(&arr)[7])
 {
 	for (int i : arr) {
 		cout << i << '\t';
 	}
 	cout << endl;
+}
+
+/*
+ * 结构体作为参数传递
+ * 结构体和基础数据类型一样，作为参数传递，会进行内存拷贝
+ * 所以结构体形参和实参并不是同一个对象
+ * C语言中可以使用传递结构体指针避免整块结构体内存拷贝
+ * C++中可以使用传递结构体引用提高效率
+ * 同样的原理可应用于抽象数据类型类对象
+ */
+typedef struct Point {
+	int x;
+	int y;
+} cPoint, *mPoint;
+
+// 1.传递结构体
+void print_struct1(cPoint point)
+{
+	cout << "x=" << point.x << "\ty=" << point.y << endl;
+	// 深拷贝，整个结构体都进行拷贝，所以效率最低，进行内存拷贝
+	point.x = 100;
+	point.y = 200;
+}
+
+// 2.传递指针，C语言推荐
+void print_struct2(mPoint point)
+{
+	// 浅拷贝，只拷贝了指向结构体的指针，结构图内部没有被拷贝
+	cout << "x=" << point->x << "\ty=" << point->y << endl;
+	point->x = 100;
+	point->y = 200;
+}
+
+// 3.传递引用, C++推荐
+void print_struct3(cPoint &point)
+{
+	// 和传递指针类型，比传递指针更简便，更直观
+	cout << "x=" << point.x << "\ty=" << point.y << endl;
+	point.x = 100;
+	point.y = 200;
 }
 
 int main()
@@ -98,7 +138,7 @@ int main()
 	print_char("Hello World");
 
 	// 方法2
-	int iarr[] = {5, 8, 10, 4, 6, 7, 9};
+	int iarr[] = { 5, 8, 10, 4, 6, 7, 9 };
 	print_arr(begin(iarr), end(iarr));
 
 	// 方法3
@@ -106,6 +146,21 @@ int main()
 
 	// 方法4
 	print_arr(iarr);
+
+
+	// C++中可以省略struct, C语言不能省略，除非用typedef重新定义过类型
+	struct Point point = { 10, 20 };
+	cout << "1." << endl;
+	print_struct1(point);
+	cout << "x=" << point.x << "\ty=" << point.y << endl;
+
+	cout << "2." << endl;
+	print_struct2(&point);
+	cout << "x=" << point.x << "\ty=" << point.y << endl;
+
+	cout << "3." << endl;
+	print_struct3(point);
+	cout << "x=" << point.x << "\ty=" << point.y << endl;
 
 	return 0;
 }
