@@ -11,7 +11,7 @@
  * 数组引用
  * int (&a)[10];	// 10个int类型数组的引用
  */
- 
+
 #include <iostream>
 #include <iterator>
 
@@ -27,6 +27,13 @@ int (*getIntArrayPointer())[5]
 int (&getIntArrayQuote())[5]
 {
 	static int arr[5] = { 4, 5, 6, 7, 8 };
+	return arr;
+}
+
+// 后置返回数组引用， c++11特性
+auto fun(int a,int b) -> int(&)[2]
+{
+	static int arr[2] = {a, b};
 	return arr;
 }
 
@@ -61,6 +68,11 @@ int main()
 	{
 		std::cout << *it << std::endl;
 	}
+	
+	// 调用后置返回数组引用
+	int(&arr3)[2] = fun(10, 20);
+	std::cout << arr3[0] << std::endl;
+	std::cout << arr3[1] << std::endl;
 
 	return 0;
 }
