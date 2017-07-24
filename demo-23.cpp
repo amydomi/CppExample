@@ -32,6 +32,22 @@ int (&getIntArrayQuote())[5]
 
 int main()
 {
+	int arr[5] = { 1,2,3,4,5 };	// 数组
+	int(*pArr)[5] = &arr;	// 指向数组的指针
+	int(&qArr)[5] = *pArr;	// 数组引用
+	for (auto it = std::begin(qArr); it != std::end(qArr); ++it)
+	{
+		std::cout << *it << std::endl;
+	}
+	
+	int a = 10, b = 20, c = 30, d = 40, e = 50;
+	int *arrAddr[5] = { &a, &b, &c, &d, &e };	// 定义一个数组指针，存放都是int类型的地址
+	for (auto it = std::begin(arrAddr); it != std::end(arrAddr); ++it)
+	{
+		std::cout << **it << std::endl;
+	}
+	
+	
 	// 遍历指向数组的指针
 	int (*arr)[5] = getIntArrayPointer();
 	for (auto it = std::begin(*arr); it != std::end(*arr); ++it)
