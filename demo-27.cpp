@@ -20,14 +20,13 @@ public:
 		std::cout << "无参构造函数。" << std::endl;
 	}
 private:
-	int x;
+	const int x;
 	int y;
 };
 
 int main()
 {
-
 	Point p1();		// 声明了一个返回值为Point的函数p1()， 不能将无参构造函数写成这样
-	Point p2;	// 创建一个Point对象
+	Point p2;		// 创建一个Point对象
 	return 0;
 }
